@@ -11,8 +11,6 @@ http {
   tcp_nopush on;
   tcp_nodelay on;
 
-  gzip_static on;
-
   include mime.types;
 
  <% if ENV["PELICAN_SITEURL"] %>
@@ -29,10 +27,9 @@ http {
   <% if ENV["PELICAN_SITEURL"] %>
     server_name <%= require 'uri'; URI.parse(ENV["PELICAN_SITEURL"]).host %>;
   <% end %>
+    gzip_static  on;
+    gzip_proxied expired no-cache no-store private auth;
 
-    location / {
-      expires 10s;
-    }
+    include /app/etc/nginx.conf;
   }
 }
-
