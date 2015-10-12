@@ -11,11 +11,8 @@ CACHE_DIR=$2
 CACHED_DIRS=".heroku"
 WORKING_DIR=$(pwd)
 
-rm -fr $CACHE_DIR
-mkdir -p $CACHE_DIR
-
 # Versions.
-PYTHON_VERSION="python-3.4.3"
+PYTHON_VERSION="python-2.7.10"
 PYTHON_STACK="cedar-14"
 NGINX_VERSION="nginx-1.7.2"
 PCRE_VERSION='pcre-8.36'
@@ -101,4 +98,3 @@ fi
 
 cp $ROOT_DIR/conf/mime.types $BUILD_DIR/
 cp $BIN_DIR/launch-nginx "$BUILD_DIR/local/sbin"
-
